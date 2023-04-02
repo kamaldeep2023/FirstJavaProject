@@ -1,0 +1,52 @@
+/**
+ * 
+ */
+package assignmentWeeek2;
+
+import java.util.Scanner;
+
+/**
+ * @author Rimpi
+ *
+ */
+public class CalculatorSwitch {
+
+	int num;  
+	String option;
+	
+	Scanner sc= new Scanner(System.in);
+	
+	void calculator()
+	{ 
+		
+		System.out.println("Calcuator performs square and cube of a number");
+		System.out.println("What would you like to do ? ");
+		System.out.println("Please enter Square or cube ");
+		option=sc.next();
+		
+		switch(option)
+		{
+		case "cube":
+			System.out.println("enter number" );
+			num = sc.nextInt();
+			int cubeNum=num*num*num;
+			System.out.println("Cube of a number " + cubeNum);
+			break;
+			
+		case "square":
+			System.out.println("enter number: ");
+			num = sc.nextInt();
+			int sqrtNum=num*num;
+			System.out.println("Square of a number :" + sqrtNum);
+			break;
+			
+		default:
+			System.out.println("Invalid Operation");
+		}
+		
+		
+	}
+	
+	
+	
+}
