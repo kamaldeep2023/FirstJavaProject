@@ -5,10 +5,6 @@ package assignmentWeeek2;
 
 import java.util.Scanner;
 
-/**
- * @author Rimpi
- *
- */
 public class CalculatorSwitch {
 
 	int num;  
