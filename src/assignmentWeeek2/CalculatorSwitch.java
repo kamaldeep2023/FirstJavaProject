@@ -29,7 +29,7 @@ public class CalculatorSwitch {
 			System.out.println("Cube of a number " + cubeNum);
 			break;
 			
-		case "square":
+		case "Square":
 			System.out.println("enter number: ");
 			num = sc.nextInt();
 			int sqrtNum=num*num;
