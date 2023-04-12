@@ -25,6 +25,10 @@ public class PizzaPrice {
 		{
 		case "Small":
 			double billAmount= 15;
+			 System.out.println("Enter what topping you like");
+			 toppings=sc.next();
+			 System.out.println("Would you like extra cheese? ");
+			 extraCheese=sc.nextBoolean();
 			if(toppings.equals("pepporoni")&& extraCheese)
 			{
 				finalBill=billAmount+2+1;
@@ -76,6 +80,10 @@ public class PizzaPrice {
 		case "Large":
 			
 			billAmount=25;
+			 System.out.println("Enter what topping you like");
+			 toppings=sc.next();
+			 System.out.println("Would you like extra cheese? ");
+			 extraCheese=sc.nextBoolean();
 			 if(toppings.equals("pepporoni")&& extraCheese)
 				{
 					finalBill=billAmount+3+1;
