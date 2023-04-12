@@ -27,8 +27,9 @@ public class PrimeNumbers {
 				else
 				{
 					System.out.println(num + " is not a Prime Number");
-					break;
+					
 				}
+				
 			}
 			
 		}

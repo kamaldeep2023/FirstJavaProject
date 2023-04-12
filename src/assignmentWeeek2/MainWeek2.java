@@ -3,7 +3,7 @@ package assignmentWeeek2;
 public class MainWeek2 {
 
 	public static void main(String[] args) {
-		Chocolates ch = new Chocolates();
+	/*	Chocolates ch = new Chocolates();
 		ch.countChocolates(); 
 
 		WaterTank wt = new WaterTank();
