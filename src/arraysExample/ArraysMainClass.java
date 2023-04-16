@@ -3,7 +3,7 @@ package arraysExample;
 public class ArraysMainClass {
 
 	public static void main(String[] args) {
-	    MobilePhonesArray mobilePhone = new MobilePhonesArray();
+	  /*  MobilePhonesArray mobilePhone = new MobilePhonesArray();
 		mobilePhone.displayPhones();
 		//mobilePhone.searchMobilePhone(); 
 
