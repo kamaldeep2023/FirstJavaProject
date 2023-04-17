@@ -72,7 +72,7 @@ public class CellphonePlans {
 	}
 
 	void printcalculatedAmount() {
-		System.out.println("You have Selected S22 with " + telecomeBrandSelected + "Plan. ");
+		System.out.println("You have Selected " + phoneModelSelected+ " with " + telecomeBrandSelected + "Plan. ");
 		System.out.println("Your Phone Tab will be:          "+phonePrice );
 		System.out.println("Your Monthly Plan will be:       "+telecomPrice);
 		System.out.println("Total Monthly Amount:             " + finalMonthlyBill);

@@ -13,7 +13,7 @@ public class CRSScore {
 	double ieltsReadSpeakWritePoints;
 	double listeningPoints;
 	int experiencePoints;
-	String experienceLevel;
+	int experienceLevel;
 	int ageScore;
 	double crsScore;
 	int adapScore;
@@ -28,20 +28,20 @@ public class CRSScore {
 		}
 	}
 
-	void experienceScore() {
-		switch (experienceLevel) {
-		case "4-5Years":
+	int experienceScore() {
+
+		if (experienceLevel == 4 || experienceLevel == 5) {
 			experiencePoints = 13;
-			break;
-		case "6YearsorMore":
+		} else if (experienceLevel >= 6) {
+
 			experiencePoints = 15;
 		}
+		return experiencePoints;
 	}
 
 	void ageScore(int ageEntered) {
-		if(ageEntered>=18 || ageEntered<=35)
-		{
-			ageScore=12;
+		if (ageEntered >= 18 || ageEntered <= 35) {
+			ageScore = 12;
 		}
 		for (int i = 1; i < age.length; i++) {
 			if (ageEntered == age[i]) {
@@ -53,13 +53,11 @@ public class CRSScore {
 
 	double ieltsListening(double listeningScore) {
 
-		if (listeningScore > 8) {
+		if (listeningScore >= 8) {
 			listeningPoints = 6;
-		} else {
-			if (listeningScore == 7.5) {
-				listeningPoints = 5;
-			}
-		}
+		} else if (listeningScore == 7.5)
+			listeningPoints = 5;
+
 		return listeningPoints;
 	}
 
@@ -69,12 +67,10 @@ public class CRSScore {
 			System.out.println("Enter your scores for " + ieltsModule[i]);
 			double score = sc.nextDouble();
 
-			if (score > 7) {
+			if (score >= 7) {
 				ieltsReadSpeakWritePoints += 6;
-			} else {
-				if (score == 6.5) {
-					ieltsReadSpeakWritePoints += 5;
-				}
+			} else if (score == 6.5) {
+				ieltsReadSpeakWritePoints += 5;
 			}
 
 		}
@@ -103,17 +99,14 @@ public class CRSScore {
 
 	}
 
-	void finalCrsScore() {
+	void calculateCrsScore() {
 		crsScore = educationScore + experiencePoints + ageScore + adapScore + listeningPoints
 				+ ieltsReadSpeakWritePoints;
 		System.out.println("Total Points you have scored: " + crsScore);
-		
-		if(crsScore>67)
-		{
+
+		if (crsScore > 67) {
 			System.out.println("You qualify to submit an Expression of Interest (EOI) to Immigration Canada");
-		}
-		else
-		{
+		} else {
 			System.out.println("You do not qualify to submit an Expression of Interest (EOI) to Immigration Canada");
 		}
 	}

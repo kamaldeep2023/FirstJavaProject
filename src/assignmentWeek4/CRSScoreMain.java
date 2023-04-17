@@ -10,8 +10,8 @@ public class CRSScoreMain {
 		System.out.println("Enter your education level: ");
 		crscalculate.educationScore(sc.next());
 		
-		System.out.println("Enter your experience in years. 4-5Years Or 6YearsorMore");
-		crscalculate.experienceLevel=sc.next();
+		System.out.println("Enter your experience in years. 4-5 Years Or 6 Years or More");
+		crscalculate.experienceLevel=sc.nextInt();
 		crscalculate.experienceScore();
 		
 		System.out.println("Enter your age in years: ");
@@ -24,7 +24,7 @@ public class CRSScoreMain {
 		
 		crscalculate.adapdability();
 		
-		crscalculate.finalCrsScore();
+		crscalculate.calculateCrsScore();
 		
 	}
 
