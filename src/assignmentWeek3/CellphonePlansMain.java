@@ -9,16 +9,25 @@ public class CellphonePlansMain {
 		if(mobilePlans.phoneBrandSelected.equals("Apple"))
 		{
 			mobilePlans.printApplePhoneNames();
+			mobilePlans.selectTelecomBrand();
+			mobilePlans.calculatePhonePlanPrice();
+			mobilePlans.calculateBill();
+			mobilePlans.printcalculatedAmount();
+		}
+		else if(mobilePlans.phoneBrandSelected.equals("Samsung"))
+		{
+			mobilePlans.printSamsungPhoneNames();
+			mobilePlans.selectTelecomBrand();
+			mobilePlans.calculatePhonePlanPrice();
+			mobilePlans.calculateBill();
+			mobilePlans.printcalculatedAmount();
 		}
 		else
 		{
-			mobilePlans.printSamsungPhoneNames();
+			System.out.println("Please select either Apple or samsung");
 		}
 		
-		mobilePlans.selectTelecomBrand();
-		mobilePlans.calculatePhonePlanPrice();
-		mobilePlans.calculateBill();
-		mobilePlans.printcalculatedAmount();
+		
 	}
 
 }

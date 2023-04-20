@@ -68,9 +68,8 @@ public class CellphonePlans {
 
 	double calculateBill() {
 		return finalMonthlyBill = phonePrice + telecomPrice;
-
 	}
-
+	
 	void printcalculatedAmount() {
 		System.out.println("You have Selected " + phoneModelSelected+ " with " + telecomeBrandSelected + "Plan. ");
 		System.out.println("Your Phone Tab will be:          "+phonePrice );
