@@ -68,16 +68,5 @@ public class StudentGame {
 		return flag;
 	}
 
-	void gameDecision() {
-		for(int i=0;i<10;i++)
-		{
-		if (counter <= 5 && randomChar[i]==randomNameCharArray[i]) {
-			System.out.println(" Congrats! You win!");
-			break;
-		} else if (counter > 5) {
-			System.out.println("Game is over");
-			break;
-		}
-	}
-	}
 }
+
