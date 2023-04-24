@@ -11,9 +11,9 @@ public class StudentGameMain {
 
 		Scanner sc = new Scanner(System.in);
 
-		for (int i = 0; i < 10 && game.counter <= 5; i++) {
+		for (int i = 1; i < 10 && game.counter < 5; i++) {
 			if (Arrays.equals(game.randomChar, game.randomNameCharArray)) {
-				System.out.println("You win!");
+				System.out.println(" You win!");
 				break;
 			} else if (i < 10 || game.counter <= 5) {
 				System.out.print("You are guessing: ");
@@ -28,8 +28,8 @@ public class StudentGameMain {
 				}
 			}
 		}
-		if(game.counter==5)
-		System.out.println("Game is over");
+		if (game.counter == 5)
+			System.out.println(" Game is over");
 
 	}
 }

@@ -25,6 +25,9 @@ public class StudentGame {
 		System.out.println("Guess a letter: ");
 		ch = sc.next().charAt(0);
 		fillUnderscoreWithLetter();
+		if (countPoints()) {
+			counter++;
+		}
 	}
 
 	void pickRandomStudentName() {
@@ -49,7 +52,7 @@ public class StudentGame {
 			if (randomChar[i] == ch) {
 				randomNameCharArray[i] = ch;
 			}
-			System.out.println(randomNameCharArray[i]);
+			System.out.print(randomNameCharArray[i]);
 		}
 	}
 
@@ -69,4 +72,3 @@ public class StudentGame {
 	}
 
 }
-
