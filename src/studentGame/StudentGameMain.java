@@ -16,16 +16,13 @@ public class StudentGameMain {
 				System.out.println(" You win!");
 				break;
 			} else if (i < 10 || game.counter <= 5) {
-				System.out.print("You are guessing: ");
-				System.out.println("You have guessed " + "(" + game.counter + ")" + " Wrong letters");
-				System.out.println("Guess a letter: ");
-				game.ch = sc.next().charAt(0);
-
+				System.out.println("You are guessing: ");
 				game.fillUnderscoreWithLetter();
 
-				if (game.countPoints()) {
-					game.counter++;
-				}
+				System.out.println();
+
+				game.askUserInputALetter();
+
 			}
 		}
 		if (game.counter == 5)

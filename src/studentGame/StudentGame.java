@@ -21,13 +21,8 @@ public class StudentGame {
 		pickRandomStudentName();
 		System.out.print("You are guessing: ");
 		replaceNameWithUnderscore();
-		System.out.println("You have guessed " + "(" + counter + ")" + " Wrong letters");
-		System.out.println("Guess a letter: ");
-		ch = sc.next().charAt(0);
-		fillUnderscoreWithLetter();
-		if (countPoints()) {
-			counter++;
-		}
+		askUserInputALetter();
+
 	}
 
 	void pickRandomStudentName() {
@@ -53,6 +48,19 @@ public class StudentGame {
 				randomNameCharArray[i] = ch;
 			}
 			System.out.print(randomNameCharArray[i]);
+		}
+	}
+
+	void askUserInputALetter() {
+		System.out.println("You have guessed " + "(" + counter + ")" + " Wrong letters"); // 1
+		System.out.println("Guess a letter: ");
+		ch = sc.next().charAt(0);
+
+		fillUnderscoreWithLetter();
+		System.out.println();
+
+		if (countPoints()) {
+			counter++;
 		}
 	}
 
