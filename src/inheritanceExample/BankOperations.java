@@ -8,19 +8,17 @@ public abstract class BankOperations {
 	public int depositAmount;
 	public double newBalance;
 	public double balance;
-	
-	
+	boolean validate;
+
 	Scanner sc = new Scanner(System.in);
 
-	PersonAccountDetails accountDetails= new PersonAccountDetails();
-	
+	PersonAccountDetails accountDetails = new PersonAccountDetails();
+
 	public abstract void changePinPassword();
-	
+
 	public double withDrawAmount() {
 		System.out.println("How much you want to withdraw");
 		withDrawAmount = sc.nextInt();
-
-		
 		if (accountDetails.getAccountBalance() > withDrawAmount) {
 			double existingBalance = accountDetails.getAccountBalance();
 			newBalance = existingBalance - withDrawAmount;
@@ -40,7 +38,7 @@ public abstract class BankOperations {
 	}
 
 	public void viewBalance() {
-		
+
 		System.out.println("Existing Balance: " + accountDetails.getAccountBalance());
 
 		accountDetails.setAccountBalance(newBalance);

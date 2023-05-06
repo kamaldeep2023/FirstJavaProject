@@ -6,12 +6,12 @@ public class InheritanceMain {
 
 	public static void main(String[] args) {
 
-		BankOperations bank=null;
+		BankOperations bank = null;
+		// $ git add src/
 
 		PersonAccountDetails accountDetails = new PersonAccountDetails("A12345", "Kamal", 1234, "Qwerty09");
 
 		Scanner sc = new Scanner(System.in);
-		
 
 		System.out.println("Account Holder name: " + accountDetails.getAccountHolderName()); // print name
 
@@ -21,83 +21,58 @@ public class InheritanceMain {
 		switch (optionEntered) {
 		case "ATM":
 			bank = new ATM(accountDetails.getPinNumber());
+			if (bank.validate) {
+				System.out.println(
+						"Enter 1 if you want to withdraw Or Enter 2 if you want to deposit Money or Enter 3 to set new PIN ");
+				int choice = sc.nextInt();
 
-			for (int i = 0; i < 3; i++) {
-				System.out.println("Enter your PIN");
-				int pinNumberEntered = sc.nextInt();
+				if (choice == 1) {
+					bank.withDrawAmount();
+					bank.viewBalance();
 
-				if (accountDetails.getPinNumber() == pinNumberEntered) {
-					System.out.println("PIN is correct");
-					System.out.println("Enter 1 if you want to withdraw Or Enter 2 if you want to deposit Money  ");
-					int choice = sc.nextInt();
+					break;
+				} else if (choice == 2) {
+					bank.depositMoney();
+					bank.viewBalance();
+					break;
+				} else if (choice == 3) {
+					bank.changePinPassword();
 
-					if (choice == 1) {
-						bank.withDrawAmount();
-						break;
-					} else if (choice == 2) {
-						bank.depositMoney();
-						break;
-					} else {
-						System.out.println("Invalid option");
-					}
-				}
-
-				else if (i < 2 && accountDetails.getPinNumber() != pinNumberEntered) {
-					System.out.println("Incorrect PIN! Please Enter correct PIN");
 				} else {
-					System.out.println("Try Again later");
+					System.out.println("Invalid option");
 				}
-
 			}
-
 			break;
 
 		case "OnlineBanking":
-			bank = new OnlineBanking();
+			bank = new OnlineBanking(accountDetails.getBankPassword());
+			if (bank.validate) {
+				System.out.println(
+						"Enter 1 if you want to withdraw Or Enter 2 if you want to deposit Money or Enter 3 to set new Bankpassword");
+				int option = sc.nextInt();
 
-			for (int i = 0; i < 3; i++) {
-				System.out.println("Enter your account Password");
-				String passwordEntered = sc.next();
-
-				if (accountDetails.getBankPassword().equals(passwordEntered)) {
-					System.out.println("Password is correct");
-					System.out.println("Enter 1 if you want to withdraw Or Enter 2 if you want to deposit Money ");
-					int option = sc.nextInt();
-
-					if (option == 1) {
-						bank.withDrawAmount();
-						break;
-					} else if (option == 2) {
-						bank.depositMoney();
-						break;
-					} else {
-						System.out.println("Invalid option");
-					}
-
-				} else if (i < 2 && (!accountDetails.getBankPassword().equals(passwordEntered))) {
-					System.out.println("Incorrect Password! Please Enter correct Password");
+				if (option == 1) {
+					bank.withDrawAmount();
+					bank.viewBalance();
+					break;
+				} else if (option == 2) {
+					bank.depositMoney();
+					bank.viewBalance();
+					break;
+				} else if (option == 3) {
+					bank.changePinPassword();
 				} else {
-					System.out.println("Try again Later");
+					System.out.println("Invalid option");
 				}
 			}
+
 			break;
 
 		default:
 
-			System.out.println("Enter 1 for Deposit or Enter 2 for Withdraw");
-			int option = sc.nextInt();
-			switch (option) {
-			case 1:
-				bank.withDrawAmount();
-				break;
-			case 2:
-				bank.depositMoney();
-				break;
-			default:
-				break;
-			}
+			System.out.println("Please visit Bank");
+
 		}
-		bank.viewBalance();
 	}
 
 }
