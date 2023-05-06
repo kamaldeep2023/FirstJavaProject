@@ -9,7 +9,6 @@ public class PersonAccountDetails {
 	private String bankPassword;
 
 	public PersonAccountDetails() {
-
 	}
 
 	public PersonAccountDetails(String accountNumber, String name, int pin, String password) {

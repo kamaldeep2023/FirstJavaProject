@@ -1,9 +1,0 @@
-/**
- * 
- */
-/**
- * @author Rimpi
- *
- */
-module FirstJavaProject {
-}
