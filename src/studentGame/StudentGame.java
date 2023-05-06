@@ -1,5 +1,8 @@
 package studentGame;
 
+
+import java.io.FileInputStream;
+//import org.apache.poi.xwpf;
 import java.util.Scanner;
 
 public class StudentGame {
@@ -15,8 +18,12 @@ public class StudentGame {
 	char ch;
 	int counter = 0;
 	boolean flag;
-	Scanner sc = new Scanner(System.in);
 
+	
+	
+	
+	Scanner sc = new Scanner(System.in);
+ String fileName;
 	public StudentGame() {
 		pickRandomStudentName();
 		System.out.print("You are guessing: ");
@@ -24,9 +31,18 @@ public class StudentGame {
 		askUserInputALetter();
 
 	}
-
+	void pickFile()
+	{
+		try {
+		FileInputStream fin = new FileInputStream("G:\\Software Testing 2023\\name%20list.docx");
+		}catch (Exception e) {
+			System.out.println(e);
+		}
+	}
+	
 	void pickRandomStudentName() {
-		randomName = studentNames[(int) Math.floor(Math.random() * studentNames.length)];
+		randomName = studentNames[(int) Math.floor(Math.random() * studentNames.length)]; // Math.floor(Math.random() *
+																							// (1 + High - Low)) + Low;
 		System.out.println(randomName);
 
 	}
@@ -45,6 +61,7 @@ public class StudentGame {
 
 		for (int i = 0; i < randomNameCharArray.length; i++) {
 			if (randomChar[i] == ch) {
+
 				randomNameCharArray[i] = ch;
 			}
 			System.out.print(randomNameCharArray[i]);
@@ -52,7 +69,7 @@ public class StudentGame {
 	}
 
 	void askUserInputALetter() {
-		System.out.println("You have guessed " + "(" + counter + ")" + " Wrong letters"); // 1
+		System.out.println("You have guessed " + "(" + counter + ")" + " Wrong letters");
 		System.out.println("Guess a letter: ");
 		ch = sc.next().charAt(0);
 

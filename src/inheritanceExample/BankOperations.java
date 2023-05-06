@@ -2,21 +2,25 @@ package inheritanceExample;
 
 import java.util.Scanner;
 
-public class BankOperations {
+public abstract class BankOperations {
 
-	int withDrawAmount;
-	int depositAmount;
-	double newBalance;
+	public int withDrawAmount;
+	public int depositAmount;
+	public double newBalance;
+	public double balance;
 	
 	
 	Scanner sc = new Scanner(System.in);
 
-	PersonAccountDetails accountDetails = new PersonAccountDetails();
+	PersonAccountDetails accountDetails= new PersonAccountDetails();
+	
+	public abstract void changePinPassword();
 	
 	public double withDrawAmount() {
 		System.out.println("How much you want to withdraw");
 		withDrawAmount = sc.nextInt();
 
+		
 		if (accountDetails.getAccountBalance() > withDrawAmount) {
 			double existingBalance = accountDetails.getAccountBalance();
 			newBalance = existingBalance - withDrawAmount;

@@ -1,35 +1,40 @@
 package inheritanceExample;
 
+import java.util.Arrays;
+import java.util.Scanner;
+
 public class ATM extends BankOperations {
 
-	/*public ATM() {
-		System.out.println("First Set your PIN");
-		int pinNumberSet = sc.nextInt();
-		accountDetails.setPinNumber(pinNumberSet);
-	}*/
+	int currentPin;
 	
-	@Override
-	public double depositMoney() {
-		System.out.println("Enter the amount you want to deposit");
-		depositAmount = sc.nextInt();
-
-		double existingBalance = accountDetails.getAccountBalance();
-		newBalance = existingBalance + depositAmount;
-
-		return newBalance;
+	public ATM(int pin) {
+		
+		currentPin = pin;	
 	}
+	
+	Scanner sc = new Scanner(System.in);
 
-	@Override
-	public double withDrawAmount() {
-		System.out.println("Enter the amount you want to withdraw");
-		withDrawAmount = sc.nextInt();
+	@override
+	public void changePinPassword() {
 
-		if (accountDetails.getAccountBalance() > withDrawAmount) {
-			double existingBalance = accountDetails.getAccountBalance();
-			newBalance = existingBalance - withDrawAmount;
+		System.out.println("Enter your current Pin");
+		int currentPinEntered = sc.nextInt();
+
+		if (currentPinEntered == currentPin) {
+			System.out.println("Enter new PIN");
+			String newPin = sc.next();
+			char[] charCurrentPin = String.valueOf(currentPin).toCharArray();
+			char[] charNewPin = newPin.toCharArray();
+			
+			if(!Arrays.equals(charCurrentPin, charNewPin) && charNewPin.length==4)
+			{
+				int newPinEntered = Integer.parseInt(new String(charNewPin));
+				accountDetails.setpinNumber(newPinEntered);
+				System.out.println("New PIN set: " + newPinEntered);
+			}
+			
+			
 		}
-
-		return newBalance;
 	}
 
 }

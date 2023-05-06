@@ -6,15 +6,12 @@ public class InheritanceMain {
 
 	public static void main(String[] args) {
 
-		BankOperations bank = null;
+		BankOperations bank=null;
 
-		PersonAccountDetails accountDetails = new PersonAccountDetails();
+		PersonAccountDetails accountDetails = new PersonAccountDetails("A12345", "Kamal", 1234, "Qwerty09");
 
 		Scanner sc = new Scanner(System.in);
-
-		System.out.println("Enter your name");
-		String ownerName = sc.next();
-		accountDetails.setAccountHolderName(ownerName); // get accountholder name
+		
 
 		System.out.println("Account Holder name: " + accountDetails.getAccountHolderName()); // print name
 
@@ -23,7 +20,7 @@ public class InheritanceMain {
 
 		switch (optionEntered) {
 		case "ATM":
-			bank = new ATM();
+			bank = new ATM(accountDetails.getPinNumber());
 
 			for (int i = 0; i < 3; i++) {
 				System.out.println("Enter your PIN");
@@ -40,6 +37,8 @@ public class InheritanceMain {
 					} else if (choice == 2) {
 						bank.depositMoney();
 						break;
+					} else {
+						System.out.println("Invalid option");
 					}
 				}
 
@@ -71,6 +70,8 @@ public class InheritanceMain {
 					} else if (option == 2) {
 						bank.depositMoney();
 						break;
+					} else {
+						System.out.println("Invalid option");
 					}
 
 				} else if (i < 2 && (!accountDetails.getBankPassword().equals(passwordEntered))) {
@@ -82,7 +83,7 @@ public class InheritanceMain {
 			break;
 
 		default:
-			bank = new BankOperations();
+
 			System.out.println("Enter 1 for Deposit or Enter 2 for Withdraw");
 			int option = sc.nextInt();
 			switch (option) {
@@ -96,9 +97,7 @@ public class InheritanceMain {
 				break;
 			}
 		}
-
 		bank.viewBalance();
-
 	}
 
 }
