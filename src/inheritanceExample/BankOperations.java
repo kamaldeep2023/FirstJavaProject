@@ -9,18 +9,21 @@ public abstract class BankOperations {
 	public double newBalance;
 	public double balance;
 	boolean validate;
+	boolean isPinPassed;
+	int pinChanged;
+	String passwordChanged;
 
 	Scanner sc = new Scanner(System.in);
 
-	PersonAccountDetails accountDetails = new PersonAccountDetails();
+	PersonAccountDetails accountDetails1 = new PersonAccountDetails();
 
-	public abstract void changePinPassword();
+	public abstract boolean changePinPassword();
 
 	public double withDrawAmount() {
 		System.out.println("How much you want to withdraw");
 		withDrawAmount = sc.nextInt();
-		if (accountDetails.getAccountBalance() > withDrawAmount) {
-			double existingBalance = accountDetails.getAccountBalance();
+		if (accountDetails1.getAccountBalance() > withDrawAmount) {
+			double existingBalance = accountDetails1.getAccountBalance();
 			newBalance = existingBalance - withDrawAmount;
 		}
 
@@ -31,7 +34,7 @@ public abstract class BankOperations {
 		System.out.println("How much you want to deposit");
 		depositAmount = sc.nextInt();
 
-		double existingBalance = accountDetails.getAccountBalance();
+		double existingBalance = accountDetails1.getAccountBalance();
 		newBalance = existingBalance + depositAmount;
 
 		return newBalance;
@@ -39,11 +42,11 @@ public abstract class BankOperations {
 
 	public void viewBalance() {
 
-		System.out.println("Existing Balance: " + accountDetails.getAccountBalance());
+		System.out.println("Existing Balance: " + accountDetails1.getAccountBalance());
 
-		accountDetails.setAccountBalance(newBalance);
+		accountDetails1.setAccountBalance(newBalance);
 
-		System.out.println("New balance: " + accountDetails.getAccountBalance());
+		System.out.println("New balance: " + accountDetails1.getAccountBalance());
 	}
 
 }

@@ -25,7 +25,7 @@ public class OnlineBanking extends BankOperations {
 		}
 	}
 
-	public void changePinPassword() {
+	public boolean changePinPassword() {
 		boolean isSpecificChar = false;
 		System.out.println("Enter New Bank Password");
 		String newBankPassword = sc.next();
@@ -33,14 +33,11 @@ public class OnlineBanking extends BankOperations {
 		if (!newBankPassword.contains("$") && !newBankPassword.contains("@") && !newBankPassword.contains("&")) {
 			isSpecificChar = true;
 		}
-
 		if ((!currentBankPassword.equals(newBankPassword)) && (newBankPassword.length() > 8) && isSpecificChar) {
-			String newPasswordEntered = newBankPassword;
-			accountDetails.setBankPassword(newPasswordEntered);
-			System.out.println("New Bank Password is : " + newPasswordEntered);
-		} else {
-			System.out
-					.println("New Password should not match with any old Password and must have minimun 8 characters");
+			passwordChanged = newBankPassword;
+			isPinPassed = true;
 		}
+		return isPinPassed;
 	}
+
 }

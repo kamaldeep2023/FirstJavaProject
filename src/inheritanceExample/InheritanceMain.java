@@ -7,7 +7,7 @@ public class InheritanceMain {
 	public static void main(String[] args) {
 
 		BankOperations bank = null;
-		// $ git add src/
+		boolean validatePin;
 
 		PersonAccountDetails accountDetails = new PersonAccountDetails("A12345", "Kamal", 1234, "Qwerty09");
 
@@ -36,7 +36,12 @@ public class InheritanceMain {
 					bank.viewBalance();
 					break;
 				} else if (choice == 3) {
-					bank.changePinPassword();
+					validatePin = bank.changePinPassword();
+					if (validatePin) {
+						accountDetails.setpinNumber(bank.pinChanged);
+					} else {
+						System.out.println("New Pin should not match with any old Pin and should be 4 digits");
+					}
 
 				} else {
 					System.out.println("Invalid option");
@@ -60,7 +65,12 @@ public class InheritanceMain {
 					bank.viewBalance();
 					break;
 				} else if (option == 3) {
-					bank.changePinPassword();
+					validatePin = bank.changePinPassword();
+					if (validatePin) {
+						accountDetails.setBankPassword(bank.passwordChanged);
+					} else {
+						System.out.println("New Pin should not match with any old Pin and should be 4 digits");
+					}
 				} else {
 					System.out.println("Invalid option");
 				}

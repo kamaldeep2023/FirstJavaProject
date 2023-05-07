@@ -27,7 +27,7 @@ public class ATM extends BankOperations {
 	}
 
 	@override
-	public void changePinPassword() {
+	public boolean changePinPassword() {
 
 		System.out.println("Enter new PIN");
 		String newPin = sc.next();
@@ -37,14 +37,10 @@ public class ATM extends BankOperations {
 		char[] charNewPin = newPin.toCharArray();
 
 		if (!Arrays.equals(charCurrentPin, charNewPin) && charNewPin.length == 4) {
-			int newPinEntered = Integer.parseInt(new String(charNewPin));
-
-			accountDetails.setpinNumber(newPinEntered);
-			System.out.println("New PIN set: " + accountDetails.getPinNumber());
-		} else {
-			System.out.println("New Pin should not match with any old Pin and should be 4 digits");
+			pinChanged = Integer.parseInt(new String(charNewPin));
+			isPinPassed = true;
 		}
-
+		return isPinPassed;
 	}
 
 }
