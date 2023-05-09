@@ -39,7 +39,7 @@ public class InheritanceMain {
 
 						if (choice == 1) {
 							bank.withDrawAmount(account.getAccountBalance());
-							 bank.viewBalance(account.getAccountBalance());
+							bank.viewBalance(account.getAccountBalance());
 							break;
 						} else if (choice == 2) {
 							bank.depositMoney(account.getAccountBalance());
@@ -63,7 +63,7 @@ public class InheritanceMain {
 
 						if (option == 1) {
 							bank.withDrawAmount(account.getAccountBalance());
-							 bank.viewBalance(account.getAccountBalance());
+							bank.viewBalance(account.getAccountBalance());
 							break;
 						} else if (option == 2) {
 							bank.depositMoney(account.getAccountBalance());
@@ -81,22 +81,10 @@ public class InheritanceMain {
 				default:
 					System.out.println("Please visit Bank");
 				}
-				
-		
-		break;	}
-			
-			else
-			{
-				System.out.println("No account exists");
-				break;
+
 			}
-			/*
-			
-				 * else if (!accountDetails[i].getAccountHolderName().equals(name)) {
-				 * System.out.println("You don't have account"); break; }
-				 */
 
 		}
 
-	}}
-
+	}
+}
