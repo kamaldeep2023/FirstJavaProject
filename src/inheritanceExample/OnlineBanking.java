@@ -25,19 +25,26 @@ public class OnlineBanking extends BankOperations {
 		}
 	}
 
-	public boolean changePinPassword() {
+	@override
+	public void changePinPassword(PersonAccountDetails account) {
 		boolean isSpecificChar = false;
-		System.out.println("Enter New Bank Password");
-		String newBankPassword = sc.next();
 
-		if (!newBankPassword.contains("$") && !newBankPassword.contains("@") && !newBankPassword.contains("&")) {
-			isSpecificChar = true;
+		for (int i = 0; i < 3; i++) {
+			System.out.println("Enter New Bank Password");
+			String newBankPassword = sc.next();
+
+			if (!newBankPassword.contains("$") && !newBankPassword.contains("@") && !newBankPassword.contains("&")) {
+				isSpecificChar = true;
+			}
+			if ((!currentBankPassword.equals(newBankPassword)) && (newBankPassword.length() > 8) && isSpecificChar) {
+				account.setBankPassword(newBankPassword);
+				System.out.println("New password set: " + account.getBankPassword());
+				break;
+			} else {
+				System.out.println(
+						"New Password should not match with any old Password , must have minimum characters and no special chars like $,&,@");
+			}
 		}
-		if ((!currentBankPassword.equals(newBankPassword)) && (newBankPassword.length() > 8) && isSpecificChar) {
-			passwordChanged = newBankPassword;
-			isPinPassed = true;
-		}
-		return isPinPassed;
 	}
 
 }

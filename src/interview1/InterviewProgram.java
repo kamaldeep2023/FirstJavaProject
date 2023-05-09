@@ -1,5 +1,4 @@
 package interview1;
-import java.util.Arrays;
 
 public class InterviewProgram {
 

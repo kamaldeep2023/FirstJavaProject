@@ -3,7 +3,7 @@ package compositionDemo;
 public class Dealership {
 
 	Car[] carList = new Car[3];
-	Car[] carArray = {};
+//	Car[] carArray = {};
 
 	public void addCarsToDealership(Car carBroughttoDealership) {
 		for (int i = 0; i < carList.length; i++) {

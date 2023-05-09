@@ -1,6 +1,5 @@
 package inheritanceExample;
 
-import java.util.Arrays;
 import java.util.Scanner;
 
 public class ATM extends BankOperations {
@@ -27,20 +26,18 @@ public class ATM extends BankOperations {
 	}
 
 	@override
-	public boolean changePinPassword() {
-
-		System.out.println("Enter new PIN");
-		String newPin = sc.next();
-		char[] charCurrentPin = String.valueOf(currentPin).toCharArray();// String.valueof() method convert the integer
-																			// to a string and tocharArray() convert the
-																			// string to an array of characters
-		char[] charNewPin = newPin.toCharArray();
-
-		if (!Arrays.equals(charCurrentPin, charNewPin) && charNewPin.length == 4) {
-			pinChanged = Integer.parseInt(new String(charNewPin));
-			isPinPassed = true;
+	public void changePinPassword(PersonAccountDetails account) {
+		for (int i = 0; i < 3; i++) {
+			System.out.println("Enter new PIN");
+			int newPin = sc.nextInt();
+			if (currentPin != newPin && String.valueOf(newPin).length() == 4) {
+				account.setpinNumber(newPin);
+				System.out.println("New Pin Set: " + account.getPinNumber());
+				break;
+			} else {
+				System.out.println("New Pin should not match with any old Pin and should be 4 digits");
+			}
 		}
-		return isPinPassed;
-	}
 
+	}
 }
