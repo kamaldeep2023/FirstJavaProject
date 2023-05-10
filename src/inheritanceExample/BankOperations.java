@@ -14,32 +14,22 @@ public abstract class BankOperations {
 
 	public abstract void changePinPassword(PersonAccountDetails account);
 
-	public double withDrawAmount(double balance) {
+	public void withDrawAmount(PersonAccountDetails account, double balance) {
 		System.out.println("How much you want to withdraw");
 		withDrawAmount = sc.nextInt();
 		if (balance > withDrawAmount) {
-			double existingBalance = balance;
-			newBalance = existingBalance - withDrawAmount;
+			account.setAccountBalance(balance - withDrawAmount);
+
 		} else {
 			System.out.println("Not enough Balance");
 		}
-
-		return newBalance;
 	}
 
-	public double depositMoney(double balance) {
+	public void depositMoney(PersonAccountDetails account, double balance) {
 		System.out.println("How much you want to deposit");
 		depositAmount = sc.nextInt();
-		double existingBalance = balance;
-		newBalance = existingBalance + depositAmount;
-		return newBalance;
-	}
+		account.setAccountBalance(balance + depositAmount);
 
-	public void viewBalance(double balance) {
-
-		System.out.println("Existing Balance: " + balance);
-
-		System.out.println("New balance: " + newBalance);
 	}
 
 }

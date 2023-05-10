@@ -38,12 +38,11 @@ public class InheritanceMain {
 						int choice = sc.nextInt();
 
 						if (choice == 1) {
-							bank.withDrawAmount(account.getAccountBalance());
-							bank.viewBalance(account.getAccountBalance());
+							bank.withDrawAmount(account, account.getAccountBalance());
 							break;
 						} else if (choice == 2) {
-							bank.depositMoney(account.getAccountBalance());
-							bank.viewBalance(account.getAccountBalance());
+							bank.depositMoney(account, account.getAccountBalance());
+
 							break;
 						} else if (choice == 3) {
 							bank.changePinPassword(account);
@@ -62,25 +61,22 @@ public class InheritanceMain {
 						int option = sc.nextInt();
 
 						if (option == 1) {
-							bank.withDrawAmount(account.getAccountBalance());
-							bank.viewBalance(account.getAccountBalance());
+							bank.withDrawAmount(account, account.getAccountBalance());
 							break;
 						} else if (option == 2) {
-							bank.depositMoney(account.getAccountBalance());
-							bank.viewBalance(account.getAccountBalance());
+							bank.depositMoney(account, account.getAccountBalance());
 							break;
 						} else if (option == 3) {
-
 							bank.changePinPassword(account);
 						} else {
 							System.out.println("Invalid option");
-
 						}
 					}
 					break;
 				default:
 					System.out.println("Please visit Bank");
 				}
+				System.out.println("Your remaining balance is : " + account.getAccountBalance());
 
 			}
 
