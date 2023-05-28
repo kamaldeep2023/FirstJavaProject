@@ -17,7 +17,8 @@ public class TableOf2 {
 		}
 		while(counter<=10);
 			
-		
+		double pow = Math.pow(number, 3);
+		System.out.println(pow);
 
 	}
 

@@ -8,8 +8,7 @@ public class GreaterNumber {
 
 	void findGreaterNumber()
 	{
-		if (n1>n2 && n1>n3
-				) 
+		if (n1>n2 && n1>n3) 
 		{
 			System.out.println("Greatest number is : " + n1);
 		}
