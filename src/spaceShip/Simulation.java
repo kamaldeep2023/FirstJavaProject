@@ -6,7 +6,7 @@ import java.io.FileReader;
 import java.io.IOException;
 
 public class Simulation {
-	double totalBudget = 0;
+
 	ArrayList<Item> itemList = new ArrayList<Item>();
 	Rocket rocket = new Rocket();
 
@@ -52,10 +52,19 @@ public class Simulation {
 	}
 
 	public double runSimulation(ArrayList<Rocket> rockets) {
+		double totalBudget = 0;
 		for (Rocket rocketList : rockets) {
 			rocketList.land();
 			rocketList.launch();
 			totalBudget += rocketList.getCost();
+			if (rocketList.land() == false || rocketList.launch() == false) {
+				for (Rocket rocketList2 : rockets) {
+					rocketList2.land();
+					rocketList2.launch();
+				}
+				totalBudget += rocketList.getCost();
+			}
+
 		}
 		return totalBudget;
 	}

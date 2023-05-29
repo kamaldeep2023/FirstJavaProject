@@ -14,7 +14,7 @@ public class SimulationMain {
 			ArrayList<Rocket> r1List = simulation.loadU1(list);
 			double budgetR1 = simulation.runSimulation(r1List);
 			System.out.println("Total cost for R1 Fleet: $" + budgetR1 + " {costs of Rockets}");
-			ArrayList<Rocket> r2List = simulation.loadU1(list);
+			ArrayList<Rocket> r2List = simulation.loadU2(list);
 			double budgetR2 = simulation.runSimulation(r2List);
 			System.out.println("Total cost for R2 Fleet: $" + budgetR2 + " {costs of Rockets}");
 		}
